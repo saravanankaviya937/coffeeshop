@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #6f4e37;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .coffe {
+          list-style: none;
+          display: flex;
+          align-items: center;
+         gap: 10px; /* Reduces space between items */
+          }
+        .coffe li {
+        margin: 0;
+        padding: 0;
+        }
+        .coffe li a {
+          color: white;
+          text-decoration: none;
+           padding: 6px 10px; /* Adjust padding for better spacing */
+           display: flex;
+         align-items: center;
+          gap: 5px; /* Space between icon and text */
+          font-size: 16px;
+        }
+       .coffe li a i {
+            font-size: 18px; /* Ensuring icons are the same size */
+        }
+        .coffe li a:hover {
+            background-color: #3e2723;
+            border-radius: 5px;
+            padding: 8px 12px;
+        }
+        .search form {
+            display: flex;
+            align-items: center;
+            margin-right: 60px;
+            height: 40px;
+        }
+        .search input {
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+        }
+        .search button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #d2691e;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .search button:hover {
+            background-color: #a0522d;
+        }
+        /* BLOGS */
+.blog-container {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+}
+.blog-title {
+    font-size: 2em;
+    color: #6f4e37;
+}
+.blog-description {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+.blog-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.blog-card:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+.blog-card {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.blog-card h3 {
+    margin: 10px 0;
+    color: #b6791f;
+}
+.blog-card p {
+    font-size: 14px;
+    color: #555;
+}
+.read-more {
+    background-color: #6f4e37;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.read-more:hover {
+    background-color: #3e2723;
+}
+
+/* FOOTER STYLING */
+.footer {
+    background-color: #3e2723;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+.footer-section h3 {
+    margin-bottom: 15px;
+    color: #d7ccc8;
+}
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-section ul li {
+    margin: 8px 0;
+}
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+.footer-section ul li a:hover {
+    color: #d2691e;
+}
+.social-icons a {
+    color: white;
+    font-size: 20px;
+    margin: 0 10px;
+}
+.social-icons a:hover {
+    color: #d2691e;
+}
+.footer-bottom {
+    background-color: #2a1a15;
+    padding: 10px;
+    margin-top: 20px;
+}
+       
+    </style>
+</head>
+<body>
+        <!--NAV BAR -->
+        <nav>
+            <div class="logo">CoffeeHaven</div>
+            <ul class="coffe">
+                <li><a href="/index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="/menu.html"><i class="fa-solid fa-utensils"></i> Menu</a></li>
+                <li><a href="blogs.html"><i class="fa-solid fa-book-open"></i> Blogs</a></li>
+                <li><a href="review.html"><i class="fa-solid fa-comments"></i> Review</a></li>
+                <li><a href="ourcoffee.html"><i class="fa-solid fa-mug-hot"></i> OurCoffee</a></li>
+                <li><a href="about.html"><i class="fa-solid fa-users"></i> AboutUs</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="search">
+                <form>
+                    <input type="text" placeholder="Search">
+                    <button type="submit">Go</button>
+                </form>
+            </div>
+        </nav><br><br>
+    <!-- BLOGS -->
+ <div class="blog-container">
+    <h2 class="blog-title">Coffee Stories & Brews</h2>
+    <p class="blog-description">Explore the world of coffee, from brewing tips to rich flavors and inspiring stories.</p>
+    
+    <div class="blog-grid">
+        <div class="blog-card">
+            <img src="img/cof40.jpg" alt="The Art of Brewing">
+            <h3>The Art of Brewing</h3>
+            <p>Discover the perfect brewing techniques to make your coffee taste amazing every time.</p>
+            <button class="read-more">Read More</button>
+        </div>
+        <div class="blog-card">
+            <img src="img/cof41.png" alt="Health Benefits of Coffee">
+            <h3>Health Benefits of Coffee</h3>
+            <p>Learn about the surprising health benefits that come with your daily cup of coffee.</p>
+            <button class="read-more">Read More</button>
+        </div>
+        <div class="blog-card">
+            <img src="img/cof42.webp" alt="Exploring Coffee Origins">
+            <h3>Exploring Coffee Origins</h3>
+            <p>Take a journey through the finest coffee-growing regions in the world.</p>
+            <button class="read-more">Read More</button>
+        </div>
+        <div class="blog-card">
+            <img src="img/cof44.jpg" alt="Coffee Trends">
+            <h3>Understanding Different Coffee Beans & Their Origins</h3>
+            <p> Find out which foods complement different coffee flavors for a perfect morning or dessert pairing.</p>
+            <button class="read-more">Read More</button>
+        </div>
+        <div class="blog-card">
+            <img src="img/cof45.jpg" alt="Coffee Trends">
+            <h3> Best Coffee Pairings: What to Eat with Your Coffee</h3>
+            <p> Find out which foods complement different coffee flavors for a perfect morning or dessert pairing.</p>
+            <button class="read-more">Read More</button>
+        </div>
+        <div class="blog-card">
+            <img src="img/cof46.avif" alt="Coffee Trends">
+            <h3>How to Start Your Own Coffee Business</h3>
+            <p>A beginner’s guide to launching a coffee shop, from sourcing beans to marketing strategies.</p>
+            <button class="read-more">Read More</button>
+        </div>
+        <div class="blog-card">
+            <img src="img/cof47.jpg" alt="Coffee Trends">
+            <h3>The Science Behind the Perfect Cup of Coffee</h3>
+            <p> Learn the chemistry of coffee brewing, from water temperature to extraction time, and how each factor affects flavor.</p>
+            <button class="read-more">Read More</button>
+        </div>
+        <div class="blog-card">
+            <img src="img/cof48.jpg" alt="Coffee Trends">
+            <h3> How to Make Café-Style Coffee at Home</h3>
+            <p>Master the art of brewing café-quality coffee in your kitchen with these expert tips and tricks.</p>
+            <button class="read-more">Read More</button>
+        </div>
+        <div class="blog-card">
+            <img src="img/cof43.jpg" alt="Coffee Trends">
+            <h3>Latest Coffee Trends in 2025</h3>
+            <p>From unique brewing methods to innovative flavors, explore the latest trends that are shaping  industry.</p>
+            <button class="read-more">Read More</button>
+        </div>
+    </div>
+</div>
+
+
+      
+ <!-- FOOTER SECTION -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>About Coffee Haven</h3>
+            <p>Experience the finest handcrafted coffee, brewed with passion and served with warmth. Join us for a perfect cup every time.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="#"><i class="fa-solid fa-utensils"></i> Menu</a></li>
+                <li><a href="#"><i class="fa-solid fa-book-open"></i> Blogs</a></li>
+                <li><a href="#"><i class="fa-solid fa-comments"></i> Reviews</a></li>
+                <li><a href="#"><i class="fa-solid fa-mug-hot"></i> Our Coffee</a></li>
+                <li><a href="#"><i class="fa-solid fa-users"></i> About Us</a></li>
+                <li><a href="#"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p><i class="fa-solid fa-location-dot"></i> 123 Coffee Street, Brew City</p>
+            <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+            <p><i class="fa-solid fa-envelope"></i> contact@coffeehaven.com</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Coffee Haven | All Rights Reserved</p>
+    </div>
+</footer>
+</body>
+</html>

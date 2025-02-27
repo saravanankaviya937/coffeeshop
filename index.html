@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #6f4e37;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .coffe {
+          list-style: none;
+          display: flex;
+          align-items: center;
+         gap: 10px; /* Reduces space between items */
+          }
+        .coffe li {
+        margin: 0;
+        padding: 0;
+        }
+        .coffe li a {
+          color: white;
+          text-decoration: none;
+           padding: 6px 10px; /* Adjust padding for better spacing */
+           display: flex;
+         align-items: center;
+          gap: 5px; /* Space between icon and text */
+          font-size: 16px;
+        }
+       .coffe li a i {
+            font-size: 18px; /* Ensuring icons are the same size */
+        }
+        .coffe li a:hover {
+            background-color: #3e2723;
+            border-radius: 5px;
+            padding: 8px 12px;
+        }
+        .search form {
+            display: flex;
+            align-items: center;
+            margin-right: 60px;
+            height: 40px;
+        }
+        .search input {
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+        }
+        .search button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #d2691e;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .search button:hover {
+            background-color: #a0522d;
+        }
+        /* TITLE*/
+        .content {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .content h1 {
+            font-size: 2.5em;
+            color: #b6791f;
+        }
+        .content p{
+            font-size: larger;
+            font-weight: 400;
+        }
+        /* MENU CARD */
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .menu-item img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #d7ccc8;
+        }
+        .menu-item h3 {
+            margin-top: 10px;
+            color:#b6791f;
+        }
+        /* TITLE 2 */
+        .content2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .content2 h1 {
+            font-size:xx-large;
+            color:rgb(158, 53, 53);
+         
+        }
+        .content2 h2 {
+            font-size:x-large;
+            color:black;
+            font-family:monospace;
+        }
+        .content2 p{
+            font-size: 20px;
+        }
+        /* CARD */
+        .card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+.card {
+    background-color: #d3d3d3;
+    padding: 20px;
+    border-radius: 0;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    object-fit: cover;
+    border: none;
+}
+.card h3 {
+    margin: 10px 0;
+    color: #b6791f;
+}
+.card p {
+    font-size: 14px;
+    color: #555;
+}
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Space between buttons */
+    margin-top: 10px;
+}
+
+.fav-button, .order-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Space between icon and text */
+    background-color: #6f4e37;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+    width: 48%;
+}
+
+.fav-button:hover, .order-button:hover {
+    background-color: #3e2723;
+}
+
+.fav-button i, .order-button i {
+    font-size: 16px;
+}
+/* BLOGS */
+.blog-container {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+}
+.blog-title {
+    font-size: 2em;
+    color: #6f4e37;
+}
+.blog-description {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+.blog-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.blog-card:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+.blog-card {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.blog-card h3 {
+    margin: 10px 0;
+    color: #b6791f;
+}
+.blog-card p {
+    font-size: 14px;
+    color: #555;
+}
+.read-more {
+    background-color: #6f4e37;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.read-more:hover {
+    background-color: #3e2723;
+}
+/* REVIEW COFFEE */
+    /* REVIEW SECTION */
+.review-container {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #fff8f1;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.review-title {
+    font-size: 2em;
+    color: #6f4e37;
+}
+.review-description {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+.review-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.review-card {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.review-card h3 {
+    margin: 5px 0;
+    color: #3e2723;
+}
+.stars {
+    color: #ffbb00;
+    margin-bottom: 10px;
+}
+.review-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* REVIEW FORM */
+.review-form {
+    margin-top: 30px;
+    text-align: center;
+}
+.review-form h3 {
+    color: #6f4e37;
+}
+.review-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.review-form input, .review-form select, .review-form textarea {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #d7ccc8;
+    border-radius: 5px;
+}
+.review-form button {
+    background-color: #6f4e37;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.review-form button:hover {
+    background-color: #3e2723;
+}
+/* FOOTER STYLING */
+.footer {
+    background-color: #3e2723;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+.footer-section h3 {
+    margin-bottom: 15px;
+    color: #d7ccc8;
+}
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-section ul li {
+    margin: 8px 0;
+}
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+.footer-section ul li a:hover {
+    color: #d2691e;
+}
+.social-icons a {
+    color: white;
+    font-size: 20px;
+    margin: 0 10px;
+}
+.social-icons a:hover {
+    color: #d2691e;
+}
+.footer-bottom {
+    background-color: #2a1a15;
+    padding: 10px;
+    margin-top: 20px;
+}
+  /* Mobile Devices */
+@media screen and (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+    .coffe {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+    .search {
+        margin-top: 10px;
+    }
+    .menu-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .menu-item img {
+        width: 120px;
+        height: 120px;
+    }
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 90%;
+    }
+    .blog-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .review-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Tablet Devices */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    nav {
+        padding: 12px 15px;
+    }
+    .coffe {
+        gap: 8px;
+    }
+    .menu-container {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .card-container {
+        justify-content: center;
+        gap: 15px;
+    }
+    .card {
+        width: 45%;
+    }
+    .blog-grid {
+        justify-content: space-evenly;
+    }
+    .review-list {
+        justify-content: space-evenly;
+    }
+    .footer-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Desktop Devices */
+@media screen and (min-width: 1025px) {
+    .menu-container {
+        justify-content: center;
+    }
+    .card-container {
+        justify-content: space-evenly;
+    }
+    .blog-grid {
+        justify-content: space-evenly;
+    }
+    .review-list {
+        justify-content: space-evenly;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <!--NAV BAR -->
+    <nav>
+        <div class="logo">CoffeeHaven</div>
+        <ul class="coffe">
+            <li><a href="/index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="menu.html"><i class="fa-solid fa-utensils"></i> Menu</a></li>
+            <li><a href="blogs.html"><i class="fa-solid fa-book-open"></i> Blogs</a></li>
+            <li><a href="review.html"><i class="fa-solid fa-comments"></i> Review</a></li>
+            <li><a href="ourcoffee.html"><i class="fa-solid fa-mug-hot"></i> OurCoffee</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-users"></i> AboutUs</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
+        <div class="search">
+            <form>
+                <input type="text" placeholder="Search">
+                <button type="submit">Go</button>
+            </form>
+        </div>
+    </nav>
+    <img src="./img/cof23.jpg" alt="" height="" width="100%">
+    <div class="content">
+        <h1>Welcome to Coffee Haven</h1>
+        <p>Discover the best blends of coffee Menu, handcrafted with love. Enjoy our rich flavors and cozy ambiance.
+           
+        </p>
+    </div>
+          
+    <div class="menu-container">
+        <div class="menu-item" style="text-decoration: none;">
+         <a href="./menu.html"><img src="img/cof2.jpg" alt="Espresso"></a>
+            <h3>Espresso</h3>
+        </div>
+        <div class="menu-item">
+            <a href="./menu.html"><img src="img/cof3.jpg" alt="Cappuccino"></a>
+            <h3>Cappuccino</h3>
+        </div>
+        <div class="menu-item">
+            <a href="./menu.html"><img src="img/cof4.jpg" alt="Latte"></a>
+            <h3>Latte</h3>
+        </div>
+        <div class="menu-item">
+            <a href="./menu.html"><img src="img/cof5.jpg" alt="Espresso"></a>
+            <h3>Mocha</h3>
+        </div>
+        <div class="menu-item">
+            <a href="./menu.html"> <img src="img/cof9.jpg" alt="Cappuccino"></a>
+            <h3>Macchiato</h3>
+        </div>
+        <div class="menu-item">
+            <a href="./menu.html"> <img src="img/cof13.jpg" alt="Latte"></a>
+            <h3>Iced Coffee</h3>
+        </div>
+        <div class="menu-item">
+            <a href="./menu.html"><img src="img/cof11.avif" alt="Espresso"></a>
+            <h3>Affogato</h3>
+        </div>
+    </div>
+    <div class="content2">
+        <h1>Add Your Favorites With US..</h1>
+        <h2>☕ "A cup of coffee shared with a friend is happiness tasted and time well spent."
+        </h2>
+        <p>
+            Indulge in the finest selection of handcrafted coffee, brewed to perfection with rich aromas and bold flavors.
+            <br> From smooth lattes to robust espressos, every sip brings warmth and delight to your day.
+        </p>
+    </div>
+    <!-- card for cooffee -->
+    <div class="card-container">
+        <div class="card">
+            <img src="img/cof9.jpg" alt="Espresso">
+            <h3>Macchiato</h3>
+            <p>Espresso "stained" with a small amount of milk and small amount of milksmall amount of milksmall amount of milk.</p>
+            <div class="button-group">
+                <a href="#" class="fav-button"><i class="fa-solid fa-heart"></i> Add to Favourite</a>
+                <a href="ordernow.html" class="order-button"><i class="fa-solid fa-cart-shopping"></i> Order Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="img/cof10.jpg" alt="Cappuccino">
+            <h3>Flat White</h3>
+            <p> A velvety mix of espresso and steamed milk with a smooth texture.</p>
+            <div class="button-group">
+                <a href="#" class="fav-button"><i class="fa-solid fa-heart"></i> Add to Favourite</a>
+                <a href="ordernow.html" class="order-button"><i class="fa-solid fa-cart-shopping"></i> Order Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="img/cof11.avif" alt="Latte">
+            <h3>Affogato</h3>
+            <p>A scoop of vanilla ice cream "drowned" in hot espresso.</p>
+            <div class="button-group">
+                <a href="#" class="fav-button"><i class="fa-solid fa-heart"></i> Add to Favourite</a>
+                <a href="ordernow.html" class="order-button"><i class="fa-solid fa-cart-shopping"></i> Order Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="img/cof24.jpg" alt="Cappuccino">
+            <h3>Cold Brew</h3>
+            <p> Slow-steeped coffee served cold for a smooth, refreshing taste smooth, refreshing taste.</p>
+            <div class="button-group">
+                <a href="#" class="fav-button"><i class="fa-solid fa-heart"></i> Add to Favourite</a>
+                <a href="ordernow.html" class="order-button"><i class="fa-solid fa-cart-shopping"></i> Order Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="img/cof13.jpg" alt="Cappuccino">
+            <h3>Iced Coffee</h3>
+            <p>Brewed coffee chilled and served over ice.</p>
+            <div class="button-group">
+                <a href="#" class="fav-button"><i class="fa-solid fa-heart"></i> Add to Favourite</a>
+                <a href="ordernow.html" class="order-button"><i class="fa-solid fa-cart-shopping"></i> Order Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="img/cof2.jpg" alt="Cappuccino">
+            <h3>Espresso </h3>
+            <p> A strong and bold shot of pure coffee.</p>
+            <div class="button-group">
+                <a href="#" class="fav-button"><i class="fa-solid fa-heart"></i> Add to Favourite</a>
+                <a href="ordernow.html" class="order-button"><i class="fa-solid fa-cart-shopping"></i> Order Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="img/cof6.jpg" alt="Cappuccino">
+            <h3>Americano</h3>
+            <p> Espresso diluted with hot water for a smoother taste.</p>
+            <div class="button-group">
+                <a href="#" class="fav-button"><i class="fa-solid fa-heart"></i> Add to Favourite</a>
+                <a href="ordernow.html" class="order-button"><i class="fa-solid fa-cart-shopping"></i> Order Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="img/cof3.jpg" alt="Cappuccino">
+            <h3>Cappuccino</h3>
+            <p> A balanced mix of espresso, steamed milk,frothy milk foam.</p>
+            <div class="button-group">
+                <a href="#" class="fav-button"><i class="fa-solid fa-heart"></i> Add to Favourite</a>
+                <a href="ordernow.html" class="order-button"><i class="fa-solid fa-cart-shopping"></i> Order Now</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="img/cof4.jpg" alt="Cappuccino">
+            <h3>Latte </h3>
+            <p>Creamy espresso with steamed milk and a light layer of foam.</p>
+            <div class="button-group">
+                <a href="#" class="fav-button"><i class="fa-solid fa-heart"></i> Add to Favourite</a>
+                <a href="ordernow.html" class="order-button"><i class="fa-solid fa-cart-shopping"></i> Order Now</a>
+            </div>
+        </div>
+         <div class="card">
+            <img src="img/cof16.jpg" alt="Cappuccino">
+            <h3>Mocha </h3>
+            <p> Espresso with chocolate syrup, steamed milk, and whipped cream.</p>
+            <div class="button-group">
+                <a href="#" class="fav-button"><i class="fa-solid fa-heart"></i> Add to Favourite</a>
+                <a href="ordernow.html" class="order-button"><i class="fa-solid fa-cart-shopping"></i> Order Now</a>
+            </div>
+        </div>
+    </div>
+ <!-- BLOGS -->
+ <div class="blog-container">
+    <h2 class="blog-title">Coffee Stories & Brews</h2>
+    <p class="blog-description">Explore the world of coffee, from brewing tips to rich flavors and inspiring stories.</p>
+    
+    <div class="blog-grid">
+        <div class="blog-card">
+            <img src="img/cof40.jpg" alt="The Art of Brewing">
+            <h3>The Art of Brewing</h3>
+            <p>Discover the perfect brewing techniques to make your coffee taste amazing every time.</p>
+            <button class="read-more">Read More</button>
+        </div>
+        <div class="blog-card">
+            <img src="img/cof41.png" alt="Health Benefits of Coffee">
+            <h3>Health Benefits of Coffee</h3>
+            <p>Learn about the surprising health benefits that come with your daily cup of coffee.</p>
+            <button class="read-more">Read More</button>
+        </div>
+        <div class="blog-card">
+            <img src="img/cof42.webp" alt="Exploring Coffee Origins">
+            <h3>Exploring Coffee Origins</h3>
+            <p>Take a journey through the finest coffee-growing regions in the world.</p>
+            <button class="read-more">Read More</button>
+        </div>
+        <div class="blog-card">
+            <img src="img/cof43.jpg" alt="Coffee Trends">
+            <h3>Latest Coffee Trends in 2025</h3>
+            <p>From unique brewing methods to innovative flavors, explore the latest trends that are shaping  industry.</p>
+            <button class="read-more">Read More</button>
+        </div>
+    </div>
+</div>
+<!-- REVIEW coffeee -->
+            <!-- REVIEW SECTION -->
+<div class="review-container">
+    <h2 class="review-title">Customer Reviews</h2>
+    <p class="review-description">See what our customers are saying about our coffee!</p>
+    
+    <div class="review-list">
+        <div class="review-card">
+            <h3>John Doe</h3>
+            <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+            </div>
+            <p>"The best cappuccino I’ve ever had! Smooth and rich flavor."</p>
+        </div>
+
+        <div class="review-card">
+            <h3>Sarah Williams</h3>
+            <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <p>"Absolutely love the mocha! Perfect blend of coffee and chocolate."</p>
+        </div>
+
+        <div class="review-card">
+            <h3>Michael Smith</h3>
+            <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+            </div>
+            <p>"Nice ambiance and great iced coffee. Will visit again!"</p>
+        </div>
+        <div class="review-card">
+            <h3>Michael Smith</h3>
+            <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+            </div>
+            <p>"Nice ambiance and great iced coffee. Will visit again!"</p>
+        </div>
+    </div>
+
+    <!-- REVIEW FORM -->
+    <div class="review-form">
+        <h3>Leave a Review</h3>
+        <form>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <select id="rating">
+                <option value="5">⭐⭐⭐⭐⭐ (5 Stars)</option>
+                <option value="4">⭐⭐⭐⭐ (4 Stars)</option>
+                <option value="3">⭐⭐⭐ (3 Stars)</option>
+                <option value="2">⭐⭐ (2 Stars)</option>
+                <option value="1">⭐ (1 Star)</option>
+            </select>
+            <textarea id="comment" placeholder="Write your review here..." required></textarea>
+            <button type="submit">Submit Review</button>
+        </form>
+    </div>
+</div>
+ <!-- FOOTER SECTION -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>About Coffee Haven</h3>
+            <p>Experience the finest handcrafted coffee, brewed with passion and served with warmth. Join us for a perfect cup every time.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="#"><i class="fa-solid fa-utensils"></i> Menu</a></li>
+                <li><a href="#"><i class="fa-solid fa-book-open"></i> Blogs</a></li>
+                <li><a href="#"><i class="fa-solid fa-comments"></i> Reviews</a></li>
+                <li><a href="#"><i class="fa-solid fa-mug-hot"></i> Our Coffee</a></li>
+                <li><a href="#"><i class="fa-solid fa-users"></i> About Us</a></li>
+                <li><a href="#"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p><i class="fa-solid fa-location-dot"></i> 123 Coffee Street, Brew City</p>
+            <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+            <p><i class="fa-solid fa-envelope"></i> contact@coffeehaven.com</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Coffee Haven | All Rights Reserved</p>
+    </div>
+</footer>
+    
+    
+
+
+
+</body>
+</html>

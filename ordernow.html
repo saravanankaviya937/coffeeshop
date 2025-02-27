@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Coffee - Coffee Haven</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #6f4e37;
+            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .coffe {
+          list-style: none;
+          display: flex;
+          align-items: center;
+         gap: 10px; /* Reduces space between items */
+          }
+        .coffe li {
+        margin: 0;
+        padding: 0;
+        }
+        .coffe li a {
+          color: white;
+          text-decoration: none;
+           padding: 6px 10px; /* Adjust padding for better spacing */
+           display: flex;
+         align-items: center;
+          gap: 5px; /* Space between icon and text */
+          font-size: 16px;
+        }
+       .coffe li a i {
+            font-size: 18px; /* Ensuring icons are the same size */
+        }
+        .coffe li a:hover {
+            background-color: #3e2723;
+            border-radius: 5px;
+            padding: 8px 12px;
+        }
+        .search form {
+            display: flex;
+            align-items: center;
+            margin-right: 60px;
+            height: 40px;
+        }
+        .search input {
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+        }
+        .search button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #d2691e;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .search button:hover {
+            background-color: #a0522d;
+        }
+        /* * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 20px;
+        } */
+        .order-container {
+            max-width: 600px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: 40px auto;
+        }
+        h1 {
+            color: #6f4e37;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .order-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .order-form label {
+            font-weight: bold;
+            text-align: left;
+            display: block;
+            color: #6f4e37;
+        }
+        .order-form input, .order-form select, .order-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d7ccc8;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .order-form textarea {
+            height: 100px;
+            resize: none;
+        }
+        .order-btn {
+            background-color: #6f4e37;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .order-btn:hover {
+            background-color: #3e2723;
+        }
+        .back-btn {
+            display: block;
+            text-decoration: none;
+            background-color: #d2691e;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .back-btn:hover {
+            background-color: #a0522d;
+        }
+        
+/* FOOTER STYLING */
+.footer {
+    background-color: #3e2723;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+}
+.footer-section h3 {
+    margin-bottom: 15px;
+    color: #d7ccc8;
+}
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-section ul li {
+    margin: 8px 0;
+}
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+.footer-section ul li a:hover {
+    color: #d2691e;
+}
+.social-icons a {
+    color: white;
+    font-size: 20px;
+    margin: 0 10px;
+}
+.social-icons a:hover {
+    color: #d2691e;
+}
+.footer-bottom {
+    background-color: #2a1a15;
+    padding: 10px;
+    margin-top: 20px;
+}
+       
+    </style>
+</head>
+<body>
+        <!--NAV BAR -->
+        <nav>
+            <div class="logo">CoffeeHaven</div>
+            <ul class="coffe">
+                <li><a href="/index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="/menu.html"><i class="fa-solid fa-utensils"></i> Menu</a></li>
+                <li><a href="blogs.html"><i class="fa-solid fa-book-open"></i> Blogs</a></li>
+                <li><a href="review.html"><i class="fa-solid fa-comments"></i> Review</a></li>
+                <li><a href="ourcoffee.html"><i class="fa-solid fa-mug-hot"></i> OurCoffee</a></li>
+                <li><a href="about.html"><i class="fa-solid fa-users"></i> AboutUs</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="search">
+                <form>
+                    <input type="text" placeholder="Search">
+                    <button type="submit">Go</button>
+                </form>
+            </div>
+        </nav>
+
+    <div class="order-container">
+        <h1>Order Your Coffee</h1>
+        <p>Fill in the details below to place your order.</p>
+
+        <form class="order-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+            <label for="coffee">Select Coffee</label>
+            <select id="coffee" required>
+                <option value="">-- Choose your coffee --</option>
+                <option value="Espresso">Espresso</option>
+                <option value="Cappuccino">Cappuccino</option>
+                <option value="Latte">Latte</option>
+                <option value="Mocha">Mocha</option>
+                <option value="Americano">Americano</option>
+                <option value="Cold Brew">Cold Brew</option>
+            </select>
+
+            <label for="size">Select Size</label>
+            <select id="size" required>
+                <option value="">-- Choose size --</option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" min="1" value="1" required>
+
+            <label for="address">Delivery Address</label>
+            <textarea id="address" placeholder="Enter your address" required></textarea>
+
+            <button type="submit" class="order-btn"><i class="fa-solid fa-cart-shopping"></i> Place Order</button>
+        </form>
+
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    </div>
+              
+ <!-- FOOTER SECTION -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>About Coffee Haven</h3>
+            <p>Experience the finest handcrafted coffee, brewed with passion and served with warmth. Join us for a perfect cup every time.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="#"><i class="fa-solid fa-utensils"></i> Menu</a></li>
+                <li><a href="#"><i class="fa-solid fa-book-open"></i> Blogs</a></li>
+                <li><a href="#"><i class="fa-solid fa-comments"></i> Reviews</a></li>
+                <li><a href="#"><i class="fa-solid fa-mug-hot"></i> Our Coffee</a></li>
+                <li><a href="#"><i class="fa-solid fa-users"></i> About Us</a></li>
+                <li><a href="#"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p><i class="fa-solid fa-location-dot"></i> 123 Coffee Street, Brew City</p>
+            <p><i class="fa-solid fa-phone"></i> +91 98765 43210</p>
+            <p><i class="fa-solid fa-envelope"></i> contact@coffeehaven.com</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Coffee Haven | All Rights Reserved</p>
+    </div>
+</footer>
+</body>
+</html>
